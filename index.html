@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <div class="container">
+        <button id="darkModeToggle">Light Mode</button>
+
+        <div class="form-box">
+          
+            <div class="form-details">
+                <h2 class="title">Feedback form</h2>
+
+                <div class="name-box">
+                    <p class="box-text"> Name</p>
+                    <p> <input type="text" placeholder="Enter name" id="name" required> </p>
+                </div>
+
+                <div class="email-box">
+                    <p class="box-text"> Email</p>
+                    <p> <input type="email" placeholder="abc@gmail.com" id="email" required> </p>
+                </div>
+
+                <div class="email-box">
+                    <p class="box-text"> Phone number</p>
+                    <p> <input type="text" placeholder="+91 0000000000" id="phone" required> </p>
+                </div>
+
+                <div class="rating-box">
+                    <h3 class="box-text">Share your experience in scaling</h3>
+
+                    <div class="feedback-labels">
+                        <span>😣 Worst</span>
+                        <span>☹️ Not Good</span>
+                        <span>😐 Fine</span>
+                        <span>😊 Look Good</span>
+                        <span>😍 Very Good</span>
+                    </div>
+                    <div class="rating-slider">
+                        <input type="range" min="1" max="5" value="5" placeholder="a" class="slider" id="rating" required>
+                    </div>
+                </div>
+                <div class="feedback-text">
+                    <textarea id="comments" placeholder="Add your comments......" oninput="CharCount()" maxlength="250" required></textarea>
+                    <div class="char-counter" id="char-counter">0/250 characters</div>
+                </div>
+
+                <div class="button-group">
+                    <button class="submit-btn" onclick="submitFeedback()">Submit</button>
+                    <button class="clear-btn" onclick="clearForm()">Clear</button>
+                </div>
+                <div class="feedback-message" id="feedback-message">Feedback Submitted! Thank you! 😊 </div>
+            </div>
+            <div class="form-img">
+                <img src="img/side img 2.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        function CharCount() {
+            const comments = document.getElementById('comments').value;
+            const charCounter = document.getElementById('char-counter');
+            charCounter.textContent = `${comments.length}/250 characters`;
+        }
+
+        function clearForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('rating').value = '5';
+            document.getElementById('comments').value = '';
+            CharCount(); 
+        }
+         function submitFeedback() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const rating = document.getElementById('rating').value;
+            const comments = document.getElementById('comments').value.trim();
+            const feedbackMessage = document.getElementById('feedback-message');
+
+            if (!name || !email || !phone || !comments) {
+                alert('Please fill in all the fields.');
+                return;
+            }
+
+            feedbackMessage.style.display = 'block';
+            clearForm();
+
+            setTimeout(() => {
+                feedbackMessage.style.display = 'none';
+            }, 3000);
+        }
+
+
+
+        document.getElementById('darkModeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.getElementById('darkModeToggle').innerText = 
+                document.body.classList.contains('dark-mode') ? "Light Mode" : "Dark Mode";
+        });
+    </script>
+</body>
+</html>

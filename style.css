@@ -16,6 +16,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    font-family: "Playwrite AU SA", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 12px;
+
 }
 
 .container {
@@ -24,6 +30,7 @@
     align-items: center;    
     /* background: #c2c2c2; */
     background-color: #bdbfc1;
+    background: linear-gradient(35deg ,#bdbfc1 , rgb(197, 197, 99),rgb(188, 113, 126));
     height: 100vh;      
 }
 .form-box {
@@ -35,6 +42,9 @@
     color: black;
     padding: 10px 30px;
     text-align: center;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+
 }
 
 
@@ -51,9 +61,12 @@
     outline: 0;
     border-radius: 20px;
     width: 100%;
+    transition: all 0.8s ease;
 }
 .form-details input:focus{
     border: 2px solid #ea5d45;
+    padding: 10px 24px;
+    font-size: 15px;
 }
 
 .form-details .title{
@@ -243,6 +256,7 @@ body.dark-mode #darkModeToggle {
 body.dark-mode .form-box{
     color: whitesmoke;
     background-image: url(img/dark-bg2.jpg);
+    box-shadow: rgba(255, 255, 255, 0.15) 0px 15px 25px, rgba(255, 255, 255, 0.05) 0px 5px 10px;
 }
 body.dark-mode .container{
     background: #1a1c23;

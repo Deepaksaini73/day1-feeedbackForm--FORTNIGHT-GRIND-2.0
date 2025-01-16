@@ -271,6 +271,26 @@ body, input, textarea, button, .slider {
     transition: background-color 0.8s ease, color 0.8s ease;
 }
 
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+    border-color: #e74c3c; /* Highlight error in red */
+}
+.error{
+    color: red;
+    font-family:'Times New Roman', Times, serif;
+    text-align: left;
+}
+
+
+
 @media only screen and (max-width: 880px) {
     .form-details .title{
         font-size: 30px;
